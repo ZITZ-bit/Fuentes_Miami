@@ -1,0 +1,37 @@
+@if (hasHeadings()) {
+  <aside class="toc" [class.collapsed]="isCollapsed()" aria-label="Tabla de contenidos">
+    <header class="toc-header">
+      <h3 class="toc-title">
+        <ng-icon name="phosphorList" size="18" strokeWidth="2" aria-hidden="true" />
+        En este artículo
+      </h3>
+      <button class="toc-toggle" type="button" (click)="toggleCollapse()" aria-label="Colapsar/Expandir" [attr.aria-expanded]="!isCollapsed()">
+        <ng-icon name="phosphorCaretRight" size="16" strokeWidth="2" [class.rotated]="isCollapsed()" aria-hidden="true" />
+      </button>
+    </header>
+
+    <nav class="toc-nav" [class.hidden]="isCollapsed()">
+      <ul class="toc-list">
+        @for (heading of headings(); track heading.id) {
+          <li class="toc-item {{ getIndentClass(heading.level) }}">
+            <a
+              class="toc-link"
+              [class.active]="heading.id === activeId()"
+              (click)="onHeadingClick(heading.id, $event)"
+              [attr.href]="'#' + heading.id"
+            >
+              {{ heading.text }}
+            </a>
+            @if (heading.children.length > 0) {
+              <app-table-of-contents
+                [headings]="heading.children"
+                [activeId]="activeId()"
+                (navigate)="navigate.emit($event)"
+              />
+            }
+          </li>
+        }
+      </ul>
+    </nav>
+  </aside>
+}
