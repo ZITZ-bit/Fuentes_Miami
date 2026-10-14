@@ -1,12 +1,49 @@
-<app-layout [sidebarTopics]="sidebarTopics()">
+<app-layout
+  [sidebarTopics]="sidebarTopics()"
+  [tocHeadings]="headings()"
+  [activeTocId]="activeHeadingId()"
+  (tocNavigate)="onTocNavigate($event)"
+>
   <section class="article">
     <header class="article-header">
+      <div class="article-actions">
+        <button class="btn-ghost" type="button" (click)="goBack()" aria-label="Volver">
+          <ng-icon name="phosphorArrowLeft" size="18" strokeWidth="2" />
+          <span>Volver</span>
+        </button>
+        <div class="action-divider" aria-hidden="true"></div>
+        <button class="btn-ghost" type="button" (click)="shareArticle()" aria-label="Compartir">
+          <ng-icon name="phosphorShare" size="18" strokeWidth="2" />
+        </button>
+        <button class="btn-ghost" type="button" (click)="printArticle()" aria-label="Imprimir">
+          <ng-icon name="phosphorPrinter" size="18" strokeWidth="2" />
+        </button>
+      </div>
+
+      <div class="article-meta-row">
+        <span class="article-category">Artículo</span>
+        <time class="article-date" [attr.datetime]="lastUpdated()">
+          <ng-icon name="phosphorClock" size="14" strokeWidth="2" aria-hidden="true" />
+          {{ lastUpdated() }}
+        </time>
+      </div>
       <h1 class="article-title">{{ articleTitle() }}</h1>
-      @if (lastUpdated()) {
-        <p class="article-meta">Última actualización: {{ lastUpdated() }}</p>
-      }
     </header>
 
     <article class="article-content" [innerHTML]="articleContent()"></article>
+
+    <footer class="article-footer">
+      <div class="footer-divider" aria-hidden="true"></div>
+      <div class="footer-actions">
+        <button class="btn-ghost" type="button" (click)="shareArticle()">
+          <ng-icon name="phosphorShare" size="18" strokeWidth="2" />
+          <span>Compartir</span>
+        </button>
+        <button class="btn-ghost" type="button" (click)="printArticle()">
+          <ng-icon name="phosphorPrinter" size="18" strokeWidth="2" />
+          <span>Imprimir</span>
+        </button>
+      </div>
+    </footer>
   </section>
 </app-layout>

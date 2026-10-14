@@ -1,0 +1,174 @@
+.toc {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.toc.collapsed {
+  border-radius: var(--radius-lg);
+}
+
+.toc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-subtle);
+}
+
+.toc-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+}
+
+.toc-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.toc-toggle:hover {
+  background-color: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+
+.toc-toggle:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.toc-toggle ng-icon {
+  transition: transform var(--transition-fast);
+}
+
+.toc-toggle ng-icon.rotated {
+  transform: rotate(-90deg);
+}
+
+.toc-nav {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: var(--space-2);
+}
+
+.toc-nav.hidden {
+  display: none;
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-item {
+  margin: 0;
+}
+
+.toc-link {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toc-link:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-hover);
+  text-decoration: none;
+}
+
+.toc-link.active {
+  color: var(--color-brand);
+  background-color: var(--color-brand-lighter);
+  font-weight: 600;
+}
+
+.toc-link.active:hover {
+  color: var(--color-brand-hover);
+  background-color: var(--color-brand-light);
+}
+
+.toc-link:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: -2px;
+}
+
+/* Indentation levels */
+.toc-indent-1 { padding-left: 0; }
+.toc-indent-2 { padding-left: var(--space-4); }
+.toc-indent-3 { padding-left: var(--space-8); }
+.toc-indent-4 { padding-left: var(--space-10); }
+
+/* Scrollbar */
+.toc-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.toc-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toc-nav::-webkit-scrollbar-thumb {
+  background-color: var(--color-border-strong);
+  border-radius: var(--radius-full);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .toc {
+    position: fixed;
+    bottom: var(--space-4);
+    right: var(--space-4);
+    left: var(--space-4);
+    top: auto;
+    z-index: 50;
+    max-height: 50vh;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    box-shadow: var(--shadow-xl);
+    transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform var(--transition-normal), opacity var(--transition-normal), visibility var(--transition-normal);
+  }
+
+  .toc.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .toc.collapsed {
+    transform: translateY(calc(100% - 52px));
+  }
+
+  .toc-nav {
+    max-height: calc(50vh - 52px);
+  }
+}

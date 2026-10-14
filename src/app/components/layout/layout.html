@@ -1,20 +1,42 @@
-<div class="layout">
-  <app-navbar />
+<div class="layout" [class.sidebar-open]="sidebarOpen()">
+  <app-navbar [sidebarOpen]="sidebarOpen()" (toggleSidebar)="toggleSidebar()" />
 
-  <div class="layout-body">
-    <aside class="sidebar" aria-label="Navegación de temas">
-      <nav class="sidebar-nav">
+  @if (isMobile()) {
+    <div
+      class="sidebar-overlay"
+      [class.visible]="sidebarOpen()"
+      (click)="closeSidebar()"
+      aria-hidden="true"
+    ></div>
+  }
+
+  <aside class="sidebar" aria-label="Navegación" [class.open]="sidebarOpen()">
+    @if (tocHeadings().length > 0) {
+      <app-table-of-contents
+        [headings]="tocHeadings()"
+        [activeId]="activeTocId()"
+        (navigate)="onTocNavigate($event)"
+      />
+    } @else {
+      <header class="sidebar-header">
         <h2 class="sidebar-title">Temas</h2>
+        <span class="sidebar-badge">{{ sidebarTopics().length }}</span>
+      </header>
+      <nav class="sidebar-nav">
         <ul class="topics-list">
           @for (topic of sidebarTopics(); track topic.id) {
             <li class="topic-item">
               <a
-                class="topic-btn"
+                class="topic-link"
                 [routerLink]="['/article', topic.slug]"
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{ exact: true }"
+                (click)="closeSidebar()"
               >
-                {{ topic.title }}
+                <span class="topic-icon" aria-hidden="true">
+                  <ng-icon [name]="topic.icon" size="18" strokeWidth="2" />
+                </span>
+                <span class="topic-text">{{ topic.title }}</span>
               </a>
             </li>
           } @empty {
@@ -22,10 +44,10 @@
           }
         </ul>
       </nav>
-    </aside>
+    }
+  </aside>
 
-    <main class="content" role="main">
-      <router-outlet />
-    </main>
-  </div>
+  <main class="content" role="main">
+    <ng-content />
+  </main>
 </div>

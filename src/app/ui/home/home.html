@@ -1,77 +1,175 @@
 <app-layout [sidebarTopics]="sidebarTopics()">
   <section class="article">
     <header class="article-header">
+      <div class="article-meta-row">
+        <span class="article-category">Documentación</span>
+        <time class="article-date" datetime="2026-10-14">14 Oct 2026</time>
+      </div>
       <h1 class="article-title">Fuentes Miami</h1>
-      <p class="article-subtitle">Documentación y referencia técnica</p>
+      <p class="article-subtitle">Base de conocimiento técnico tipo Wikipedia — Documentación viva, mantenible y escalable</p>
     </header>
 
     <article class="article-content">
       <section class="section">
+        <div class="section-icon" aria-hidden="true">
+          <ng-icon name="phosphorInfo" size="24" strokeWidth="1.5" />
+        </div>
         <h2>Introducción</h2>
         <p>
-          <strong>Fuentes Miami</strong> es una base de conocimiento estructurada
-          tipo <em>Wikipedia</em> diseñada para centralizar documentación técnica,
-          guías de referencia y mejores prácticas de desarrollo.
+          <strong>Fuentes Miami</strong> es una base de conocimiento estructurada tipo <em>Wikipedia</em>
+          diseñada para centralizar documentación técnica, guías de referencia y mejores prácticas de desarrollo.
         </p>
         <p>
-          La interfaz está dividida en dos paneles: a la izquierda el
-          <em>indicador de temas</em> (sidebar de navegación) y a la derecha el
-          contenido principal del artículo seleccionado.
+          La interfaz sigue el patrón clásico de enciclopedia: <strong>sidebar izquierda</strong> con navegación
+          de temas persistente y <strong>contenido principal a la derecha</strong> con tipografía optimizada para lectura.
         </p>
-      </section>
-
-      <section class="section">
-        <h2>Estructura del Proyecto</h2>
-        <ul class="feature-list">
-          <li>
-            <strong>components/</strong> — Componentes reutilizables de UI
-            (Layout, Botones, Cards, etc.)
-          </li>
-          <li>
-            <strong>services/</strong> — Servicios y lógica de negocio (Topics,
-            Auth, Data, etc.)
-          </li>
-          <li>
-            <strong>styles/</strong> — Estilos globales, variables CSS, mixins
-            y utilidades
-          </li>
-          <li>
-            <strong>ui/</strong> — Vistas/páginas completas (Home, Article,
-            Search, etc.)
-          </li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Tecnologías</h2>
-        <div class="tech-grid">
-          <div class="tech-card">
-            <h3>Angular 22</h3>
-            <p>Standalone components, signals, control flow syntax</p>
-          </div>
-          <div class="tech-card">
-            <h3>TypeScript 6</h3>
-            <p>Tipado estricto, inferencia avanzada</p>
-          </div>
-          <div class="tech-card">
-            <h3>CSS Nativo</h3>
-            <p>Custom properties, Grid, Flexbox, Container Queries</p>
-          </div>
-          <div class="tech-card">
-            <h3>RxJS 7</h3>
-            <p>Programación reactiva, signals interop</p>
+        <div class="callout callout-info">
+          <ng-icon name="phosphorLightbulb" size="20" strokeWidth="1.5" aria-hidden="true" />
+          <div>
+            <strong>Dato:</strong> Construido con Angular 22, Signals, Standalone Components y Control Flow nativo.
           </div>
         </div>
       </section>
 
       <section class="section">
+        <div class="section-icon" aria-hidden="true">
+          <ng-icon name="phosphorFolderOpen" size="24" strokeWidth="1.5" />
+        </div>
+        <h2>Arquitectura del Proyecto</h2>
+        <p>Estructura modular por responsabilidad, escalable y mantenible:</p>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon">
+              <ng-icon name="phosphorCube" size="20" strokeWidth="1.5" />
+            </div>
+            <h3>components/</h3>
+            <p>Componentes de UI reutilizables (Layout, Navbar, Cards, Buttons, etc.)</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">
+              <ng-icon name="phosphorGear" size="20" strokeWidth="1.5" />
+            </div>
+            <h3>services/</h3>
+            <p>Lógica de negocio y estado compartido (Topics, Content, Auth, Data)</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">
+              <ng-icon name="phosphorPaintBrush" size="20" strokeWidth="1.5" />
+            </div>
+            <h3>styles/</h3>
+            <p>CSS global, variables, utilidades, temas y diseño system</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">
+              <ng-icon name="phosphorLayout" size="20" strokeWidth="1.5" />
+            </div>
+            <h3>ui/</h3>
+            <p>Vistas/páginas completas (Home, Article, Search, Settings)</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-icon" aria-hidden="true">
+          <ng-icon name="phosphorStack" size="24" strokeWidth="1.5" />
+        </div>
+        <h2>Stack Tecnológico</h2>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-icon">
+              <ng-icon name="phosphorAngularLogo" size="24" strokeWidth="1.5" />
+            </div>
+            <h3>Angular 22</h3>
+            <p>Standalone components, signals, control flow nativo (&#64;if, &#64;for, &#64;switch)</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-icon">
+              <ng-icon name="phosphorCode" size="24" strokeWidth="1.5" />
+            </div>
+            <h3>TypeScript 6</h3>
+            <p>Tipado estricto, inferencia avanzada, template type checking</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-icon">
+              <ng-icon name="phosphorFileCss" size="24" strokeWidth="1.5" />
+            </div>
+            <h3>CSS Nativo</h3>
+            <p>Custom properties, Grid, Flexbox, Container Queries, Cascade Layers</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-icon">
+              <ng-icon name="phosphorInfinity" size="24" strokeWidth="1.5" />
+            </div>
+            <h3>RxJS 7</h3>
+            <p>Programación reactiva, signals interop, operadores modernos</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-icon">
+              <ng-icon name="phosphorPackage" size="24" strokeWidth="1.5" />
+            </div>
+            <h3>ng-icons</h3>
+            <p>Phosphor Icons — 7000+ iconos SVG, tree-shakable, múltiples pesos</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-icon">
+              <ng-icon name="phosphorTestTube" size="24" strokeWidth="1.5" />
+            </div>
+            <h3>Vitest</h3>
+            <p>Testing unitario rápido, compatible con Vite, APIs modernas</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-icon" aria-hidden="true">
+          <ng-icon name="phosphorRocketLaunch" size="24" strokeWidth="1.5" />
+        </div>
         <h2>Primeros Pasos</h2>
-        <pre class="code-block"><code>npm start
+        <div class="code-blocks">
+          <div class="code-block">
+            <div class="code-header">
+              <span>Terminal</span>
+              <span class="code-copy" aria-label="Copiar">Copiar</span>
+            </div>
+            <pre><code>npm start
 # o
 ng serve</code></pre>
-        <p>
-          La aplicación estará disponible en <code>http://localhost:4200</code>
-        </p>
+          </div>
+          <p class="code-note">La aplicación estará disponible en <code>http://localhost:4201</code></p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-icon" aria-hidden="true">
+          <ng-icon name="phosphorArrowRight" size="24" strokeWidth="1.5" />
+        </div>
+        <h2>Próximos Pasos</h2>
+        <ul class="next-steps">
+          <li>
+            <span class="step-number">1</span>
+            <div>
+              <strong>Explora la navegación</strong> — Usa la sidebar izquierda para saltar entre temas
+            </div>
+          </li>
+          <li>
+            <span class="step-number">2</span>
+            <div>
+              <strong>Lee los artículos</strong> — Cada tema tiene su página con contenido enriquecido
+            </div>
+          </li>
+          <li>
+            <span class="step-number">3</span>
+            <div>
+              <strong>Personaliza</strong> — Añade tus propios temas en <code>topics.service.ts</code>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">4</span>
+            <div>
+              <strong>Extiende</strong> — Crea componentes en <code>components/</code> y servicios en <code>services/</code>
+            </div>
+          </li>
+        </ul>
       </section>
     </article>
   </section>
