@@ -1,0 +1,31 @@
+<div class="layout">
+  <app-navbar />
+
+  <div class="layout-body">
+    <aside class="sidebar" aria-label="Navegación de temas">
+      <nav class="sidebar-nav">
+        <h2 class="sidebar-title">Temas</h2>
+        <ul class="topics-list">
+          @for (topic of sidebarTopics(); track topic.id) {
+            <li class="topic-item">
+              <a
+                class="topic-btn"
+                [routerLink]="['/article', topic.slug]"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+                {{ topic.title }}
+              </a>
+            </li>
+          } @empty {
+            <li class="topic-empty">Sin temas disponibles</li>
+          }
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content" role="main">
+      <router-outlet />
+    </main>
+  </div>
+</div>

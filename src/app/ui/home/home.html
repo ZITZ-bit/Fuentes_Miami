@@ -1,0 +1,78 @@
+<app-layout [sidebarTopics]="sidebarTopics()">
+  <section class="article">
+    <header class="article-header">
+      <h1 class="article-title">Fuentes Miami</h1>
+      <p class="article-subtitle">Documentación y referencia técnica</p>
+    </header>
+
+    <article class="article-content">
+      <section class="section">
+        <h2>Introducción</h2>
+        <p>
+          <strong>Fuentes Miami</strong> es una base de conocimiento estructurada
+          tipo <em>Wikipedia</em> diseñada para centralizar documentación técnica,
+          guías de referencia y mejores prácticas de desarrollo.
+        </p>
+        <p>
+          La interfaz está dividida en dos paneles: a la izquierda el
+          <em>indicador de temas</em> (sidebar de navegación) y a la derecha el
+          contenido principal del artículo seleccionado.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Estructura del Proyecto</h2>
+        <ul class="feature-list">
+          <li>
+            <strong>components/</strong> — Componentes reutilizables de UI
+            (Layout, Botones, Cards, etc.)
+          </li>
+          <li>
+            <strong>services/</strong> — Servicios y lógica de negocio (Topics,
+            Auth, Data, etc.)
+          </li>
+          <li>
+            <strong>styles/</strong> — Estilos globales, variables CSS, mixins
+            y utilidades
+          </li>
+          <li>
+            <strong>ui/</strong> — Vistas/páginas completas (Home, Article,
+            Search, etc.)
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Tecnologías</h2>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <h3>Angular 22</h3>
+            <p>Standalone components, signals, control flow syntax</p>
+          </div>
+          <div class="tech-card">
+            <h3>TypeScript 6</h3>
+            <p>Tipado estricto, inferencia avanzada</p>
+          </div>
+          <div class="tech-card">
+            <h3>CSS Nativo</h3>
+            <p>Custom properties, Grid, Flexbox, Container Queries</p>
+          </div>
+          <div class="tech-card">
+            <h3>RxJS 7</h3>
+            <p>Programación reactiva, signals interop</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Primeros Pasos</h2>
+        <pre class="code-block"><code>npm start
+# o
+ng serve</code></pre>
+        <p>
+          La aplicación estará disponible en <code>http://localhost:4200</code>
+        </p>
+      </section>
+    </article>
+  </section>
+</app-layout>

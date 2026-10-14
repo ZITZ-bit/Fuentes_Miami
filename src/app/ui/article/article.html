@@ -1,0 +1,12 @@
+<app-layout [sidebarTopics]="sidebarTopics()">
+  <section class="article">
+    <header class="article-header">
+      <h1 class="article-title">{{ articleTitle() }}</h1>
+      @if (lastUpdated()) {
+        <p class="article-meta">Última actualización: {{ lastUpdated() }}</p>
+      }
+    </header>
+
+    <article class="article-content" [innerHTML]="articleContent()"></article>
+  </section>
+</app-layout>
