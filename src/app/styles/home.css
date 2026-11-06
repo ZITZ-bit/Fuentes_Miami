@@ -1,0 +1,15 @@
+main {
+  padding: 2rem;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: #666;
+  font-size: 1.1rem;
+}
