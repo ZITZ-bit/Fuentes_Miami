@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: fuentes-miami
+    env: docker
+    plan: free
+    region: ohio
+    dockerfilePath: Dockerfile
+    dockerContextPath: .
+    envVars:
+      - key: NODE_ENV
+        value: production

@@ -1,0 +1,15 @@
+.indice {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.indice h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.indice p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
