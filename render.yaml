@@ -5,7 +5,7 @@ services:
     plan: free
     region: ohio
     dockerfilePath: Dockerfile
-    dockerContextPath: .
+    dockerContext: .
     envVars:
       - key: NODE_ENV
         value: production
