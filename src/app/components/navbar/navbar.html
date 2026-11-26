@@ -1,0 +1,30 @@
+<header class="navbar">
+  <div class="navbar__identity">
+    <button class="navbar__menu" type="button" aria-label="Abrir menú">
+      <ng-icon [svg]="menuIcon" size="1.5rem" aria-hidden="true" />
+    </button>
+    <a class="navbar__brand" href="/" aria-label="Fuentes Miami, inicio">
+      <img class="navbar__brand-icon" src="assets/img/palmera.png" alt="" />
+      <span>Fuentes Miami</span>
+    </a>
+  </div>
+
+  <form class="navbar__search" role="search" (submit)="$event.preventDefault()">
+    <div class="navbar__search-field">
+      <ng-icon class="navbar__search-icon" [svg]="searchIcon" size="1.15rem" aria-hidden="true" />
+      
+      <input
+        class="navbar__search-input"
+        type="search"
+        name="q"
+        placeholder="Buscar..."
+        aria-label="Buscar"
+      />
+    </div>
+  </form>
+
+  <div class="navbar__actions">
+    <button class="navbar__account" type="button">Crear cuenta</button>
+    <button class="navbar__account" type="button">Iniciar sesión</button>
+  </div>
+</header>

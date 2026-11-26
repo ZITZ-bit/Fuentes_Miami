@@ -1,0 +1,24 @@
+<section class="contenido-panel" aria-labelledby="contenido-titulo">
+
+  <header class="contenido-panel__header">
+    <h2 id="contenido-titulo">Contenido</h2>
+
+    <button
+      class="contenido-panel__toggle"
+      type="button"
+      [attr.aria-expanded]="isContentVisible"
+      aria-controls="contenido-panel-body"
+      (click)="toggleContent()"
+    >
+
+      {{ isContentVisible ? 'Ocultar' : 'Mostrar' }}
+
+    </button>
+  </header>
+
+  <hr class="contenido-panel__divider" />
+
+  <div id="contenido-panel-body" class="contenido-panel__body" [hidden]="!isContentVisible">
+    <ng-content />
+  </div>
+</section>
