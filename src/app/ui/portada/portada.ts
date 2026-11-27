@@ -3,14 +3,13 @@ import { Component } from '@angular/core';
 // Componentes
 
 import { Navbar } from '../../components/navbar/navbar';
-import { Contenido } from '../../components/contenido/contenido';
 import { Apariencia } from '../../components/apariencia/apariencia';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.html',
-  styleUrl: '../../styles/home.css',
+  selector: 'app-portada',
+  templateUrl: './portada.html',
+  styleUrl: '../../styles/portada.css',
   standalone: true,
-  imports: [Navbar, Contenido, Apariencia],
+  imports: [Navbar, Apariencia],
 })
-export class Home {}
+export class Portada {}

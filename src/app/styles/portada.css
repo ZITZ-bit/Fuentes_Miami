@@ -1,0 +1,31 @@
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 2rem;
+  padding: 2rem;
+  text-align: left;
+  font-family: sans-serif;
+}
+
+app-apariencia {
+  grid-column: 2;
+  justify-self: end;
+}
+
+@media (max-width: 700px) {
+  main {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: #666;
+  font-size: 1.1rem;
+}

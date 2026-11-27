@@ -9,22 +9,35 @@
     </a>
   </div>
 
-  <form class="navbar__search" role="search" (submit)="$event.preventDefault()">
-    <div class="navbar__search-field">
-      <ng-icon class="navbar__search-icon" [svg]="searchIcon" size="1.15rem" aria-hidden="true" />
-      
-      <input
-        class="navbar__search-input"
-        type="search"
-        name="q"
-        placeholder="Buscar..."
-        aria-label="Buscar"
-      />
-    </div>
-  </form>
+  @if (showSearch) {
+    <form class="navbar__search" role="search" (submit)="$event.preventDefault()">
+      <div class="navbar__search-field">
+        <ng-icon class="navbar__search-icon" [svg]="searchIcon" size="1.15rem" aria-hidden="true" />
+        
+        <input
+          class="navbar__search-input"
+          type="search"
+          name="q"
+          placeholder="Buscar..."
+          aria-label="Buscar"
+        />
+      </div>
+    </form>
+  }
 
   <div class="navbar__actions">
-    <button class="navbar__account" type="button">Crear cuenta</button>
-    <button class="navbar__account" type="button">Iniciar sesión</button>
+    <button class="navbar__account" type="button" routerLink="/registro">Crear cuenta</button>
+    <button class="navbar__account" type="button" routerLink="/iniciar-sesion">Iniciar sesión</button>
+    @if (showBackToHome) {
+      <button
+        class="navbar__back"
+        type="button"
+        routerLink=""
+        aria-label="Volver a portada"
+        title="Volver a portada"
+      >
+        <ng-icon [svg]="backIcon" size="1.25rem" aria-hidden="true" />
+      </button>
+    }
   </div>
 </header>
